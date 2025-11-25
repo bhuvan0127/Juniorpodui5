@@ -1,0 +1,244 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout"
+    xmlns:s="sap.ui.comp.filterbar"
+    controllerName="juniorpod.controller.View1">
+
+    <f:DynamicPage
+        id="dynamicPage"
+        headerExpanded="true"
+        toggleHeaderOnTitleClick="true"
+        preserveHeaderStateOnScroll="false">
+
+        <!-- TITLE SECTION -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <m:Title text="JUNIOR POD UI5" level="H2" />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <!-- HEADER SECTION-->
+        <f:header>
+            <f:DynamicPageHeader>
+            <l:Grid
+                    defaultSpan="L3 M6 S12"
+                    hSpacing="2"
+                    vSpacing="1"
+                    width="100%"
+                    class="sapUiMediumMargin filterGridBox"
+                >
+            <m:VBox>
+            <m:Label text="Company Code: "></m:Label>
+            <m:Input id="companycoded" value="" submit="onEnter"></m:Input>
+            </m:VBox>
+            <m:VBox>
+            <m:Label text="Ledger Group: "></m:Label>
+            <m:Input value=""></m:Input>
+            </m:VBox>
+            <m:VBox>
+            <m:Label text="Journal Entry Type: "></m:Label>
+            <m:Input value=""></m:Input>
+            </m:VBox>
+            <m:VBox>
+            <m:Label text="Journal Entry: "></m:Label>
+            <m:Input value=""></m:Input>
+            </m:VBox>
+            <m:VBox>
+            <m:Label text="Document Date: "></m:Label>
+            <m:Input value=""></m:Input>
+            </m:VBox>
+            <m:VBox>
+            <m:Label text="Period: "></m:Label>
+            <m:Input value=""></m:Input>
+            </m:VBox>
+            <m:VBox>
+            <m:Label text="Fiscal Year: "></m:Label>
+            <m:Input value=""></m:Input>
+            </m:VBox>
+            <m:VBox>
+            <m:Label text="Posting Date: "></m:Label>
+            <m:DateRangeSelection id="dateRangeSelector" displayFormat="dd.MM.yyyy" />
+            </m:VBox>
+            </l:Grid>
+
+                <s:FilterBar
+                    id="filterBar">
+
+                    <s:filterGroupItems>
+
+                        <!-- Header ===>filterbar section-->
+                        <!-- row 1-->
+                        <s:FilterGroupItem
+                            groupName="General"
+                            name="CompanyCode"
+                            label="Company Code">
+
+                            <s:control>
+                                <m:Input
+                                    id="inputCompanyCode"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueHelpCompanyCode" />
+                            </s:control>
+
+                        </s:FilterGroupItem>
+                        <!--ROW 2-->
+                        <s:FilterGroupItem
+                            groupName="General"
+                            name="LedgerGroup"
+                            label="Ledger Group">
+
+                            <s:control>
+                                <m:Input
+                                    id="lg"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueHelpLedgerGroup" />
+                            </s:control>
+
+                        </s:FilterGroupItem>
+                        <!--ROW 3-->
+                        <s:FilterGroupItem
+                            groupName="General"
+                            name="JournalEntryType"
+                            label="Journal Entry Type">
+
+                            <s:control>
+                                <m:Input
+                                    id="jet"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueHelpJournalEntryType" />
+                            </s:control>
+
+                        </s:FilterGroupItem>
+                        <!--ROW 4-->
+                         <s:FilterGroupItem
+                            groupName="General"
+                            name="DocumentDate"
+                            label="Document Date">
+
+                            <s:control>
+                                <m:Input
+                                    id="dd"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueHelpDocumentDate" />
+                            </s:control>
+
+                        </s:FilterGroupItem>
+                        <!--ROW 5-->
+                        <s:FilterGroupItem
+                            groupName="General"
+                            name="Period"
+                            label="Period">
+
+                            <s:control>
+                                <m:Input
+                                    id="p"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueHelpPeriod" />
+                            </s:control>
+
+                        </s:FilterGroupItem>
+                        <!--ROW 6 -->
+                        <s:FilterGroupItem
+                            groupName="General"
+                            name="JournalEntry"
+                            label="Journal Entry">
+
+                            <s:control>
+                                <m:Input
+                                    id="je"
+                                    placeholder="Interval(for example...)"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueJournalEntry" />
+                            </s:control>
+                        </s:FilterGroupItem>
+                        <!--ROW 7 -->
+                        <s:FilterGroupItem
+                            groupName="General"
+                            name="FiscalYear"
+                            label="Fiscal Year">
+
+                            <s:control>
+                                <m:Input
+                                    id="fy"
+                                    placeholder="Interval(for example...)"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onValueHelpFiscalYear" />
+                                    <m:DateRangeSelection id="fiscaldate"  displayFormat="dd.MM.yyyy"/>
+                            </s:control>
+                        </s:FilterGroupItem>
+                        <!--ROW 8 -->
+                        <s:FilterGroupItem
+                            groupName="General"
+                            name="PostingDate"
+                            label="Posting Date">
+
+                            <s:control>
+                                <m:DateRangeSelection id="pd"  displayFormat="dd.MM.yyyy"></m:DateRangeSelection>
+                            </s:control>
+                        </s:FilterGroupItem>        
+                    </s:filterGroupItems>
+                </s:FilterBar>
+            </f:DynamicPageHeader>
+        </f:header>
+         <f:content>
+        <m:Table id="cmpTable"
+        items= "{ path:'bhuvan>/FilterDataScenarios' }"
+        mode="SingleSelectLeft"  includeItemInSelection="true" >
+        <m:headerToolbar>
+            <m:Toolbar >
+                <m:Title text="Journal Entries"></m:Title>
+                <m:Button
+                    id="Add"
+                    icon="sap-icon://add"
+                    type="Emphasized"  
+                    press="onAddNew" />
+ 
+                <m:Button
+                    id="Update"
+                    icon="sap-icon://edit"
+                    class="sapUiSmallMarginBegin"
+                    press="onUpdate"
+                    />
+ 
+                <m:Button
+                    id="Delete"
+                    icon="sap-icon://delete"
+                    type="Reject"
+                    class="sapUiSmallMarginBegin"
+                    press="onDelete"
+                    />
+                <!-- <m:Button text="Nav to view2" press=".onClick"></m:Button> -->
+            </m:Toolbar>
+        </m:headerToolbar>
+            <m:columns>
+                <m:Column><m:Text text="Company Code" /></m:Column>
+                <m:Column><m:Text text="Ledger Group" /></m:Column>
+                <m:Column><m:Text text="Journal Entry Type" /></m:Column>
+                <m:Column><m:Text text="Journal Entry" /></m:Column>
+                <m:Column><m:Text text="Document Date" /></m:Column>
+                <m:Column><m:Text text="Period" /></m:Column>              
+                <m:Column><m:Text text="Fiscal Year" /></m:Column>
+                <m:Column><m:Text text="Posting Date"/></m:Column>
+            </m:columns>
+            <m:items>
+                <m:ColumnListItem press=".onRowPress" type="Active">
+                    <m:cells>
+                        <m:Text text="{bhuvan>CompanyCode}"></m:Text>
+                        <m:Text text="{bhuvan>LedgerGroup}"></m:Text>
+                        <m:Text text="{bhuvan>JournalEntryType}"></m:Text>
+                        <m:Text text="{bhuvan>JournalEntry}"></m:Text>
+                        <m:Text text="{bhuvan>DocumentDate}"></m:Text>
+                        <m:Text text="{bhuvan>Period}"></m:Text>
+                        <m:Text text="{bhuvan>FiscalYear}"></m:Text>
+                        <m:Text text="{bhuvan>PostingDateRangeString}"></m:Text>
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+        </m:Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

@@ -1,0 +1,208 @@
+<!-- <mvc:View xmlns:cards="sap.f.cards" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="juniorpod.controller.View2"
+    viewName="juniorpod.view.View2">
+    <Page id="titleText" title="DETAIL PAGE">
+    <content>
+    <SplitContainer id="inputSc" initialDetail="page" initialMaster="master">
+    <masterPages>
+    <Page id="master" title="Verify with company code(20)" class="sapUiStdPage" backgroundDesign="List">
+        <content>
+        <Toolbar id="searchBar">
+        <ToolbarSeparator />
+        <SearchField showSearchButton="true"></SearchField>
+        </Toolbar>
+            <List id="masterView" items= "{bhuvan>/FilterDataScenarios}" mode="SingleSelectMaster" 
+            selectionChange="onSidebarSelect">
+            <ObjectListItem 
+                title="{bhuvan>CompanyCode}"
+                 type="Active" 
+                 number="{bhuvan>JournalEntry}" 
+                 numberUnit="{bhuvan>FiscalYear}">
+                <attributes>
+                    <ObjectAttribute text="{bhuvan>Period}"></ObjectAttribute>
+                    <ObjectAttribute  text="{bhuvan>DocumentDate}"></ObjectAttribute>
+                </attributes>
+                </ObjectListItem> 
+            </List>
+        </content>
+    </Page>
+    </masterPages>
+    <detailPages>
+    <Page id="detailArea" title=" Journal Entry Details" titleAlignment="Center" >
+        <content>
+            <ObjectHeader responsive="true" fullScreenOptimized="true"
+            title="journal Entry: {bhuvan>JournalEntry}" intro=" Journal Entry Type: {bhuvan>JournalEntryType}" backgroundDesign="Translucent">
+            <statuses>
+                <ObjectStatus text="Submitted" state="Success"></ObjectStatus>
+            </statuses>
+            <attributes >
+            <ObjectAttribute text="Fiscal Year: {bhuvan>FiscalYear}"></ObjectAttribute>
+            <ObjectAttribute text="Document Date: {bhuvan>DocumentDate}"></ObjectAttribute>
+            </attributes>
+            </ObjectHeader>
+        </content>
+    <Toolbar >
+    <Button icon="sap-icon://message-information" type="Transparent" tooltip="Info" />
+    <Button icon="sap-icon://attachment" type="Transparent" tooltip="Attachments" />
+    <Button icon="sap-icon://notes" type="Transparent" tooltip="Notes" />
+    <Button icon="sap-icon://edit" type="Transparent" tooltip="Edit" />
+    <ToolbarSpacer/>
+    </Toolbar>
+    <VBox >
+    <f:SimpleForm editable="false" layout="ResponsiveGridLayout" 
+                labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" 
+                columnsXL="1"   columnsL="1"   columnsM="1" >
+    <f:content>
+        <Label  text="Company Code"/>
+        <Text text="{bhuvan>CompanyCode}"/>
+        <Label text="Ledger Group"></Label>
+        <Text text="{bhuvan>LedgerGroup}"></Text>      
+        <Label text="Journal Entry Type"></Label>
+        <Text text="{bhuvan>JournalEntryType}"></Text>
+        <Label text="Journal Entry"></Label>
+        <Text text="{bhuvan>JournalEntry}"></Text>
+        <Label text="Document Date"></Label>
+        <Text text="{bhuvan>DocumentDate}"></Text>
+        <Label text="Period"></Label>
+        <Text text="{bhuvan>Period}"></Text>
+        <Label text="Fiscal Year"></Label>
+        <Text text="{bhuvan>FiscalYear}"></Text>
+        <Label text="Posting Date Range String"></Label>
+        <Text text="{bhuvan>PostingDateRangeString}"></Text>
+    </f:content>  
+    </f:SimpleForm>
+    </VBox>
+    <VBox >
+    <m:Table id="view2Table"
+        inset="false" >
+        <m:headerToolbar>
+            <m:Toolbar >
+                <m:Title text="Journal Entries"></m:Title>
+            </m:Toolbar>
+        </m:headerToolbar>
+            <m:columns>
+                <m:Column><m:Text text="Company Code" /></m:Column>
+                <m:Column><m:Text text="Ledger Group" /></m:Column>
+                <m:Column><m:Text text="Journal Entry Type" /></m:Column>
+                <m:Column><m:Text text="Journal Entry" /></m:Column>
+                <m:Column><m:Text text="Document Date" /></m:Column>
+                <m:Column><m:Text text="Period" /></m:Column>              
+                <m:Column><m:Text text="Fiscal Year" /></m:Column>
+                <m:Column><m:Text text="Posting Date"/></m:Column>
+            </m:columns>
+            <m:items>
+                <m:ColumnListItem >
+                    <m:cells>
+                        
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+        </m:Table>
+    </VBox>
+    <Button text="back to view1" press=".onBack"></Button>
+    <Text text="Welcome to page 2!"></Text> 
+    </Page>
+    </detailPages>
+    </SplitContainer>
+    </content>
+    </Page>
+</mvc:View> -->
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="juniorpod.controller.View2"
+    viewName="juniorpod.view.View2">
+
+  <m:Page id="titleText" title="DETAIL PAGE">
+    <m:content>
+      <m:SplitContainer id="inputSc" initialDetail="page" initialMaster="master">
+        <m:masterPages>
+          <m:Page id="master" title="Verify with company code(20)" class="sapUiStdPage" backgroundDesign="List">
+            <m:content>
+              <m:Toolbar id="searchBar">
+                <m:ToolbarSeparator />
+                <m:SearchField showSearchButton="true" />
+              </m:Toolbar>
+
+              <m:List id="masterView" items="{bhuvan>/FilterDataScenarios}" mode="SingleSelectMaster" selectionChange=".onSidebarSelect">
+                <m:ObjectListItem
+                  title="{bhuvan>CompanyCode}"
+                  type="Active"
+                  number="{bhuvan>JournalEntry}"
+                  numberUnit="{bhuvan>FiscalYear}">
+                  <m:attributes>
+                    <m:ObjectAttribute text="{bhuvan>Period}" />
+                    <m:ObjectAttribute text="{bhuvan>DocumentDate}" />
+                  </m:attributes>
+                </m:ObjectListItem>
+              </m:List>
+
+            </m:content>
+          </m:Page>
+        </m:masterPages>
+
+        <m:detailPages>
+          <m:Page id="detailArea" title="Journal Entry Details" titleAlignment="Center">
+            <m:content>
+              <m:ObjectHeader responsive="true" fullScreenOptimized="true"
+                              title="journal Entry: {bhuvan>JournalEntry}"
+                              intro=" Journal Entry Type: {bhuvan>JournalEntryType}"
+                              backgroundDesign="Translucent">
+                <m:statuses>
+                  <m:ObjectStatus text="Submitted" state="Success" />
+                </m:statuses>
+                <m:attributes>
+                  <m:ObjectAttribute text="Fiscal Year: {bhuvan>FiscalYear}" />
+                  <m:ObjectAttribute text="Document Date: {bhuvan>DocumentDate}" />
+                </m:attributes>
+              </m:ObjectHeader>
+            </m:content>
+
+            <m:Toolbar>
+              <m:Button icon="sap-icon://message-information" type="Transparent" tooltip="Info" />
+              <m:Button icon="sap-icon://attachment" type="Transparent" tooltip="Attachments" />
+              <m:Button icon="sap-icon://notes" type="Transparent" tooltip="Notes" />
+              <m:Button icon="sap-icon://edit" type="Transparent" tooltip="Edit" />
+              <m:ToolbarSpacer />
+            </m:Toolbar>
+
+            <m:VBox>
+              <f:SimpleForm editable="false" layout="ResponsiveGridLayout"
+                            labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+                            columnsXL="1" columnsL="1" columnsM="1">
+                <f:content>
+                  <m:Label text="Company Code" />
+                  <m:Text text="{bhuvan>CompanyCode}" />
+                  <m:Label text="Ledger Group" />
+                  <m:Text text="{bhuvan>LedgerGroup}" />
+                  <m:Label text="Journal Entry Type" />
+                  <m:Text text="{bhuvan>JournalEntryType}" />
+                  <m:Label text="Journal Entry" />
+                  <m:Text text="{bhuvan>JournalEntry}" />
+                  <m:Label text="Document Date" />
+                  <m:Text text="{bhuvan>DocumentDate}" />
+                  <m:Label text="Period" />
+                  <m:Text text="{bhuvan>Period}" />
+                  <m:Label text="Fiscal Year" />
+                  <m:Text text="{bhuvan>FiscalYear}" />
+                  <m:Label text="Posting Date Range String" />
+                  <m:Text text="{bhuvan>PostingDateRangeString}" />
+                </f:content>
+              </f:SimpleForm>
+            </m:VBox>
+
+            <m:Button text="back to view1" press=".onBack" />
+            <m:Text text="Welcome to page 2!" />
+          </m:Page>
+        </m:detailPages>
+
+      </m:SplitContainer>
+    </m:content>
+  </m:Page>
+</mvc:View>

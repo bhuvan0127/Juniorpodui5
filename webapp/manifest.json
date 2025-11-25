@@ -1,0 +1,109 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "juniorpod",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.19.5",
+      "toolsId": "c4afad1b-78b7-4dc6-ba92-f03e7de6bc7c"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.142.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "juniorpod.i18n.i18n"
+        }
+      },
+      "bhuvan":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/junior.json"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "juniorpod.view",
+        "async": true,
+        "viewPath": "juniorpod.view"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "View1",
+          "target":"View1"
+        },
+        {
+          "pattern": "View2/{index}",
+          "name": "View2",
+          "target":"View2"
+        }
+      ],
+      "targets": {
+        "View1": {
+          "id": "Viewe",
+          "viewName": "View1"
+        },
+        "View2":{
+          "id": "Viewew",
+          "viewName": "View2"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "juniorpod.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
